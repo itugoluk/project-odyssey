@@ -104,7 +104,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: false, margin: '-80px' }}
           transition={{ duration: 0.5 }}
         >
           <p className="section-label">Current Work</p>
@@ -121,7 +121,7 @@ export default function Home() {
               variants={cardVariants}
               initial="hidden"
               whileInView="show"
-              viewport={{ once: true, margin: '-60px' }}
+              viewport={{ once: false, margin: '-60px' }}
               whileHover={{ scale: 1.02, y: -6 }}
               transition={{ type: 'spring', stiffness: 360, damping: 20 }}
             >
@@ -150,7 +150,7 @@ export default function Home() {
         className="manifesto glass"
         initial={{ opacity: 0, y: 36 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-60px' }}
+        viewport={{ once: false, margin: '-60px' }}
         whileHover={{ scale: 1.012, y: -4 }}
         transition={{ type: 'spring', stiffness: 280, damping: 20 }}
       >

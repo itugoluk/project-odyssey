@@ -65,7 +65,7 @@ export default function About() {
         className="mission-section glass"
         initial={{ opacity: 0, y: 35 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-80px' }}
+        viewport={{ once: false, margin: '-80px' }}
         whileHover={{ scale: 1.015, y: -5 }}
         transition={{ type: 'spring', stiffness: 300, damping: 18 }}
       >
@@ -100,7 +100,7 @@ export default function About() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: false, margin: '-80px' }}
           transition={{ duration: 0.55 }}
         >
           <p className="section-label">What drives us</p>
@@ -115,7 +115,7 @@ export default function About() {
               data-number={v.number}
               initial={{ opacity: 0, y: 45 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
+              viewport={{ once: false, margin: '-60px' }}
               transition={{
                 delay: i * 0.1,
                 type: 'spring',
