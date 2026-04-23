@@ -79,7 +79,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, type: 'spring', stiffness: 240, damping: 20 }}
           >
-            <Link to="/about" className="btn btn-primary">Our story</Link>
+            <Link to="/about" className="btn btn-primary">Our story →</Link>
             <Link to="/contact" className="btn btn-ghost">Get in touch</Link>
           </motion.div>
         </div>
@@ -134,7 +134,6 @@ export default function Home() {
               <div className="project-card-inner">
                 <div className="project-tag-row">
                   <span className="project-tag">{project.tag}</span>
-                  <span className="project-status-pill">WIP</span>
                 </div>
                 <h3 className="project-name">{project.name}</h3>
                 <p className="project-desc">{project.description}</p>

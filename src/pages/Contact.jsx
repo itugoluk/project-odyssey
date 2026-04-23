@@ -4,11 +4,16 @@ import './Contact.css'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setSent(true)
+    setSending(true)
+    setTimeout(() => {
+      setSending(false)
+      setSent(true)
+    }, 900)
   }
 
   return (
@@ -105,11 +110,13 @@ export default function Contact() {
               <motion.button
                 type="submit"
                 className="btn btn-primary"
-                whileHover={{ scale: 1.03, y: -2 }}
-                whileTap={{ scale: 0.97 }}
+                disabled={sending}
+                whileHover={sending ? {} : { scale: 1.03, y: -2 }}
+                whileTap={sending ? {} : { scale: 0.97 }}
                 transition={{ type: 'spring', stiffness: 420, damping: 16 }}
+                style={{ opacity: sending ? 0.7 : 1 }}
               >
-                Send message
+                {sending ? 'Sending...' : 'Send message'}
               </motion.button>
             </>
           )}

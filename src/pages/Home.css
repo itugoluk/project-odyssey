@@ -1,8 +1,8 @@
 .home {
   display: flex;
   flex-direction: column;
-  gap: 10rem;
-  padding-top: 10rem;
+  gap: 7rem;
+  padding-top: 9rem;
 }
 
 /* ── Hero ────────────────────────────────────── */
@@ -11,7 +11,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   align-items: center;
-  min-height: 80vh;
+  min-height: 72vh;
   position: relative;
 }
 
@@ -27,7 +27,7 @@
 .hero-content {
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  gap: 1.5rem;
 }
 
 .hero-title {
@@ -52,7 +52,7 @@
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 }
 
 /* Hero right-side decorative ring */
@@ -108,16 +108,21 @@
 
 .hero-inner-text {
   font-family: 'Syne', sans-serif;
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 600;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: rgba(245, 158, 11, 0.4);
+  color: rgba(245, 158, 11, 0.55);
   text-align: center;
-  line-height: 1.8;
+  line-height: 1.9;
 }
 
 /* ── Projects ────────────────────────────────── */
+.projects-section {
+  display: flex;
+  flex-direction: column;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -131,6 +136,11 @@
   overflow: hidden;
   cursor: default;
   border-left: 2px solid var(--card-accent, rgba(245, 158, 11, 0.4)) !important;
+  transition: box-shadow 0.22s ease;
+}
+
+.project-card:hover {
+  box-shadow: -2px 0 18px -2px var(--card-accent, rgba(245, 158, 11, 0.3)), 0 12px 40px rgba(0,0,0,0.5);
 }
 
 .project-card-glow {
@@ -159,18 +169,6 @@
   color: var(--primary);
 }
 
-.project-status-pill {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.62rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  background: rgba(255, 255, 255, 0.04);
-  padding: 0.2rem 0.6rem;
-  border-radius: 2px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-}
 
 .project-name {
   font-family: 'Syne', sans-serif;
@@ -225,9 +223,9 @@
 /* ── Manifesto ───────────────────────────────── */
 .manifesto {
   border-radius: 4px;
-  padding: 4rem 5rem;
+  padding: 3.5rem 4rem;
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
   position: relative;
   overflow: hidden;
 }
@@ -235,10 +233,10 @@
 .manifesto::before {
   content: '"';
   position: absolute;
-  top: -0.5rem;
+  top: -2rem;
   left: 1.5rem;
   font-family: 'Syne', sans-serif;
-  font-size: 12rem;
+  font-size: 9rem;
   font-weight: 800;
   color: rgba(245, 158, 11, 0.05);
   line-height: 1;
@@ -248,12 +246,12 @@
 
 .manifesto-quote {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-size: clamp(1.1rem, 2.5vw, 1.45rem);
   font-weight: 500;
-  line-height: 1.6;
-  color: rgba(250, 250, 249, 0.7);
+  line-height: 1.65;
+  color: rgba(250, 250, 249, 0.78);
   font-style: normal;
-  max-width: 700px;
+  max-width: 660px;
   margin: 0 auto;
   letter-spacing: -0.01em;
 }

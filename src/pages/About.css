@@ -1,8 +1,8 @@
 .about {
   display: flex;
   flex-direction: column;
-  gap: 8rem;
-  padding-top: 10rem;
+  gap: 6rem;
+  padding-top: 9rem;
 }
 
 .about-hero {
@@ -109,12 +109,17 @@
 .value-card {
   border-radius: 4px;
   padding: 2.25rem 2rem;
-  border-bottom: 1px solid rgba(245, 158, 11, 0.12) !important;
-  border-top: none !important;
+  border-top: 1px solid rgba(245, 158, 11, 0.14) !important;
   border-left: none !important;
   border-right: none !important;
+  border-bottom: none !important;
   position: relative;
   overflow: hidden;
+  transition: box-shadow 0.22s ease;
+}
+
+.value-card:hover {
+  box-shadow: 0 -2px 16px -2px rgba(245, 158, 11, 0.18), 0 12px 40px rgba(0,0,0,0.45);
 }
 
 .value-card::before {

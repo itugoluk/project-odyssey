@@ -56,10 +56,8 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.34, duration: 0.55 }}
         >
-          Project Odyssey is an AI-first parent company building intelligent
-          systems across industries. We treat AI as the foundational layer —
-          not an add-on — and our largest current focus is applying it to sport,
-          where the gap between available data and human understanding is vast.
+          We build intelligent products where the gap between available data and
+          human understanding is largest. Sport is the first front.
         </motion.p>
       </section>
 

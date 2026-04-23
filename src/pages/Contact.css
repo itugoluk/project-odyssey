@@ -1,8 +1,8 @@
 .contact {
   display: flex;
   flex-direction: column;
-  gap: 5rem;
-  padding-top: 10rem;
+  gap: 4rem;
+  padding-top: 9rem;
 }
 
 .contact-hero {
@@ -91,7 +91,20 @@
 }
 
 .form-input:focus {
-  border-color: rgba(245, 158, 11, 0.5);
+  border-color: rgba(245, 158, 11, 0.65);
+  box-shadow: 0 1px 0 0 rgba(245, 158, 11, 0.3);
+  outline: none;
+}
+
+.contact-form .btn-primary {
+  width: 100%;
+  justify-content: center;
+  margin-top: 0.25rem;
+}
+
+.contact-form .btn-primary:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 /* ── Success ─────────────────────────────────── */
@@ -140,11 +153,16 @@
 
 .contact-detail-item {
   border-radius: 4px;
-  padding: 1.4rem 1.6rem;
-  border-left: 2px solid rgba(245, 158, 11, 0.2) !important;
+  padding: 1.6rem 1.75rem;
+  border-left: 2px solid rgba(245, 158, 11, 0.25) !important;
   border-top: none !important;
   border-right: none !important;
   border-bottom: none !important;
+  transition: box-shadow 0.2s ease;
+}
+
+.contact-detail-item:hover {
+  box-shadow: -2px 0 14px -2px rgba(245, 158, 11, 0.2), 0 8px 28px rgba(0,0,0,0.4);
 }
 
 .detail-label {
@@ -159,12 +177,12 @@
 
 .detail-value {
   font-family: 'Syne', sans-serif;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: var(--text);
   letter-spacing: -0.01em;
 }
 
 .detail-open {
-  color: #2dd4bf;
+  color: #5eead4;
 }
