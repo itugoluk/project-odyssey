@@ -25,32 +25,68 @@ export default function Contact() {
       transition={{ type: 'spring', stiffness: 200, damping: 24 }}
     >
       <section className="contact-hero">
-        <motion.p
-          className="section-label"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.12 }}
+        <div className="contact-hero-content">
+          <motion.p
+            className="section-label"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.12 }}
+          >
+            Let's talk
+          </motion.p>
+          <motion.h1
+            className="contact-title"
+            initial={{ opacity: 0, y: 55 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.18, type: 'spring', stiffness: 140, damping: 18 }}
+          >
+            Get in
+            <br />
+            <span className="text-accent">Touch</span>
+          </motion.h1>
+          <motion.div
+            className="contact-lead-block"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.34, type: 'spring', stiffness: 180, damping: 22 }}
+          >
+            <p className="contact-lead">
+              Have an idea, a question, or want to collaborate?
+            </p>
+            <p className="contact-lead contact-lead-secondary">
+              Reach out directly — responses are personal, not automated.
+            </p>
+          </motion.div>
+        </div>
+
+        <motion.div
+          className="contact-hero-visual glass"
+          initial={{ opacity: 0, x: 28 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.3, type: 'spring', stiffness: 140, damping: 20 }}
         >
-          Let's talk
-        </motion.p>
-        <motion.h1
-          className="contact-title"
-          initial={{ opacity: 0, y: 55 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.18, type: 'spring', stiffness: 140, damping: 18 }}
-        >
-          Get in
-          <br />
-          <span className="text-accent">Touch</span>
-        </motion.h1>
-        <motion.p
-          className="contact-lead"
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.34, duration: 0.55 }}
-        >
-          Have an idea, a question, or want to collaborate? Reach out directly.
-        </motion.p>
+          <div className="contact-status-row">
+            <span className="contact-status-dot" />
+            <span className="contact-status-text">Available now</span>
+          </div>
+          <div className="contact-divider" />
+          <div className="contact-meta-item">
+            <span className="contact-meta-label">Response time</span>
+            <span className="contact-meta-value">Within 24 hours</span>
+          </div>
+          <div className="contact-meta-item">
+            <span className="contact-meta-label">Time zone</span>
+            <span className="contact-meta-value">CET — Madrid</span>
+          </div>
+          <div className="contact-meta-item">
+            <span className="contact-meta-label">Open to</span>
+            <span className="contact-meta-value contact-meta-highlight">Collaboration · Ideas · Feedback</span>
+          </div>
+          <div className="contact-arc-wrap" aria-hidden="true">
+            <div className="contact-arc contact-arc-1" />
+            <div className="contact-arc contact-arc-2" />
+          </div>
+        </motion.div>
       </section>
 
       <div className="contact-layout">

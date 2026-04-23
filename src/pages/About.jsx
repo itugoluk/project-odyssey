@@ -1,6 +1,12 @@
 import { motion } from 'framer-motion'
 import './About.css'
 
+const stats = [
+  { value: '2', label: 'Active projects', accent: 'primary' },
+  { value: 'AI-first', label: 'Since day one', accent: 'secondary' },
+  { value: 'Madrid', label: 'Based in Spain', accent: 'primary' },
+]
+
 const values = [
   {
     number: '01',
@@ -32,33 +38,63 @@ export default function About() {
       transition={{ type: 'spring', stiffness: 200, damping: 24 }}
     >
       <section className="about-hero">
-        <motion.p
-          className="section-label"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.12 }}
-        >
-          Who we are
-        </motion.p>
-        <motion.h1
-          className="about-title"
-          initial={{ opacity: 0, y: 55 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.18, type: 'spring', stiffness: 140, damping: 18 }}
-        >
-          Building what
-          <br />
-          <span className="text-accent">doesn't exist yet</span>
-        </motion.h1>
-        <motion.p
-          className="about-lead"
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.34, duration: 0.55 }}
-        >
-          We build intelligent products where the gap between available data and
-          human understanding is largest. Sport is the first front.
-        </motion.p>
+        <div className="about-hero-content">
+          <motion.p
+            className="section-label"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.12 }}
+          >
+            Who we are
+          </motion.p>
+          <motion.h1
+            className="about-title"
+            initial={{ opacity: 0, y: 55 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.18, type: 'spring', stiffness: 140, damping: 18 }}
+          >
+            Building what
+            <br />
+            <span className="text-accent">doesn't exist yet</span>
+          </motion.h1>
+          <motion.div
+            className="about-lead-block"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.34, type: 'spring', stiffness: 180, damping: 22 }}
+          >
+            <p className="about-lead">
+              We build intelligent products where the gap between available data
+              and human understanding is largest.
+            </p>
+            <p className="about-lead about-lead-secondary">
+              Sport is the first front — where the data volume is enormous and
+              the tools to make sense of it are still catching up.
+            </p>
+          </motion.div>
+        </div>
+
+        <div className="about-hero-visual">
+          {stats.map((stat, i) => (
+            <motion.div
+              key={stat.label}
+              className={`about-stat glass about-stat--${stat.accent}`}
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{
+                delay: 0.28 + i * 0.12,
+                type: 'spring',
+                stiffness: 160,
+                damping: 20,
+              }}
+              whileHover={{ scale: 1.04, y: -4 }}
+            >
+              <span className="about-stat-value">{stat.value}</span>
+              <span className="about-stat-label">{stat.label}</span>
+            </motion.div>
+          ))}
+          <div className="about-hero-line" />
+        </div>
       </section>
 
       <motion.section

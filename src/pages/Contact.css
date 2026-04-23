@@ -6,6 +6,25 @@
 }
 
 .contact-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  min-height: 52vh;
+}
+
+@media (max-width: 760px) {
+  .contact-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    gap: 2.5rem;
+  }
+  .contact-hero-visual {
+    display: none;
+  }
+}
+
+.contact-hero-content {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -19,13 +38,130 @@
   letter-spacing: -0.035em;
 }
 
+.contact-lead-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
 .contact-lead {
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
   color: var(--text-muted);
-  max-width: 400px;
+  max-width: 420px;
   line-height: 1.78;
   font-weight: 400;
+}
+
+.contact-lead-secondary {
+  color: rgba(250, 250, 249, 0.38);
+  font-size: 0.9rem;
+}
+
+/* ── Hero visual (availability panel) ────────── */
+.contact-hero-visual {
+  border-radius: 4px;
+  padding: 2.25rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  position: relative;
+  overflow: hidden;
+  border-top: 2px solid rgba(20, 184, 166, 0.22) !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+}
+
+.contact-status-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.contact-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #14b8a6;
+  box-shadow: 0 0 10px rgba(20, 184, 166, 0.7);
+  flex-shrink: 0;
+  animation: statusPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.45; transform: scale(0.72); }
+}
+
+.contact-status-text {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #5eead4;
+}
+
+.contact-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  margin: 0.1rem 0;
+}
+
+.contact-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.contact-meta-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.contact-meta-value {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.contact-meta-highlight {
+  color: rgba(245, 158, 11, 0.85);
+  font-size: 0.85rem;
+}
+
+/* Decorative arcs */
+.contact-arc-wrap {
+  position: absolute;
+  right: -30px;
+  bottom: -30px;
+  width: 140px;
+  height: 140px;
+  pointer-events: none;
+}
+
+.contact-arc {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid transparent;
+}
+
+.contact-arc-1 {
+  inset: 0;
+  border-color: rgba(20, 184, 166, 0.1);
+  clip-path: polygon(0 0, 60% 0, 60% 100%, 0 100%);
+}
+
+.contact-arc-2 {
+  inset: 20px;
+  border-color: rgba(245, 158, 11, 0.1);
+  clip-path: polygon(0 0, 65% 0, 65% 100%, 0 100%);
 }
 
 .contact-layout {
