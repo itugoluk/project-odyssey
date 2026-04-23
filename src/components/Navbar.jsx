@@ -15,13 +15,12 @@ export default function Navbar() {
     <div className="navbar-positioner">
       <motion.nav
         className="navbar glass"
-        initial={{ y: -80, opacity: 0 }}
+        initial={{ y: -58, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ type: 'spring', stiffness: 280, damping: 22, delay: 0.1 }}
+        transition={{ type: 'spring', stiffness: 260, damping: 26, delay: 0.05 }}
       >
         <Link to="/" className="nav-logo">
-          <span className="nav-logo-accent">P</span>ROJECT&nbsp;
-          <span className="nav-logo-accent">O</span>DYSSEY
+          Project Odyssey
         </Link>
         <div className="nav-links">
           {navLinks.map(({ to, label }) => (
