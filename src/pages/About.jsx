@@ -56,10 +56,10 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.34, duration: 0.55 }}
         >
-          Project Odyssey is a collection of ventures built at the intersection
-          of technology, sport, and artificial intelligence. We are early,
-          deliberate, and focused on building tools that genuinely change how
-          people interact with information.
+          Project Odyssey is an AI-first parent company building intelligent
+          systems across industries. We treat AI as the foundational layer —
+          not an add-on — and our largest current focus is applying it to sport,
+          where the gap between available data and human understanding is vast.
         </motion.p>
       </section>
 
@@ -68,29 +68,31 @@ export default function About() {
         initial={{ opacity: 0, y: 35 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }}
-        transition={{ type: 'spring', stiffness: 145, damping: 20 }}
+        whileHover={{ scale: 1.015, y: -5 }}
+        transition={{ type: 'spring', stiffness: 300, damping: 18 }}
       >
         <div className="mission-grid">
           <div>
             <p className="section-label">Mission</p>
             <h2 className="mission-heading">
-              One vision,
+              AI-first,
               <br />
-              many fronts
+              everywhere
             </h2>
           </div>
           <div>
             <p className="mission-text">
               The name is not incidental. An odyssey is a long journey — one
-              that is difficult, uncertain, and ultimately defining. That's what
-              we're on. Each project is a front in a larger effort to understand
-              and shape how technology integrates into the domains we care about
-              most.
+              that is difficult, uncertain, and ultimately defining. Ours is
+              about making artificial intelligence the foundation of every
+              product we build, in every domain we enter.
             </p>
             <p className="mission-text">
-              Right now, that means sports analytics and personal AI. But the
-              principle scales to wherever there is a gap between what technology
-              can do and what people actually have access to.
+              Sport is our first and largest front. The volume of data generated
+              by modern football is enormous; the tools to make sense of it, for
+              fans and organisations alike, are still catching up. We're closing
+              that gap with AI. But the approach scales anywhere the same
+              asymmetry exists.
             </p>
           </div>
         </div>

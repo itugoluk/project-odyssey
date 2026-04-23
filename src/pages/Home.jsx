@@ -6,9 +6,9 @@ const projects = [
   {
     id: 1,
     name: 'Spurs Tracker',
-    tag: 'Football Analytics',
+    tag: 'Sports AI',
     description:
-      'Real-time performance tracking and analytics platform for Tottenham Hotspur, delivering deep statistical insights and visualisations.',
+      'AI-powered performance tracking and analytics for Tottenham Hotspur — surfacing deep insights, automating analysis, and changing how fans engage with the game.',
     color: '#6366f1',
   },
   {
@@ -66,8 +66,8 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.38, duration: 0.55 }}
         >
-          A portfolio of ventures at the intersection of technology, sport, and
-          intelligence. Every project, one vision.
+          An AI-first parent company building the next generation of intelligent
+          products — starting with sport, expanding everywhere.
         </motion.p>
 
         <motion.div
@@ -130,11 +130,12 @@ export default function Home() {
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-60px' }}
-        transition={{ type: 'spring', stiffness: 140, damping: 20 }}
+        whileHover={{ scale: 1.015, y: -5 }}
+        transition={{ type: 'spring', stiffness: 300, damping: 18 }}
       >
         <p className="manifesto-quote">
-          "We build at the edge of what's possible — deliberately, obsessively,
-          and without compromise."
+          "AI is not a feature — it's the foundation. We build on that
+          foundation, deliberately and without compromise."
         </p>
       </motion.section>
     </motion.div>
