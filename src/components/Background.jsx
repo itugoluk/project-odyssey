@@ -1,22 +1,21 @@
-import { useEffect } from 'react'
 import './Background.css'
 
 export default function Background() {
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      document.documentElement.style.setProperty('--mx', e.clientX)
-      document.documentElement.style.setProperty('--my', e.clientY)
-    }
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
-
   return (
-    <div className="bg-wrapper">
-      <div className="bg-glow-mouse" />
-      <div className="bg-blob bg-blob-1" />
-      <div className="bg-blob bg-blob-2" />
-      <div className="bg-blob bg-blob-3" />
+    <div className="bg-wrapper" aria-hidden="true">
+      <div className="bg-paper" />
+      <div className="bg-grain" />
+      <div className="bg-halo bg-halo-1" />
+      <div className="bg-halo bg-halo-2" />
+      <svg className="bg-lines" viewBox="0 0 1200 800" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="ln-fade" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#121110" stopOpacity="0" />
+            <stop offset="50%" stopColor="#121110" stopOpacity="0.07" />
+            <stop offset="100%" stopColor="#121110" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+      </svg>
     </div>
   )
 }
