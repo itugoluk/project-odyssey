@@ -4,31 +4,33 @@ import './Home.css'
 
 const projects = [
   {
-    id: 1,
+    id: '001',
     name: 'Spurs Tracker',
-    tag: 'Sports AI',
+    domain: 'Sport · Football Analytics',
+    year: '2026',
+    status: 'In development',
     description:
-      'AI-powered performance tracking and analytics for Tottenham Hotspur — surfacing deep insights, automating analysis, and changing how fans engage with the game.',
-    accentColor: 'rgba(245, 158, 11, 0.5)',
-    glowColor: 'rgba(245, 158, 11, 0.06)',
+      'AI-powered performance tracking for Tottenham Hotspur. Surfaces tactical patterns, automates match analysis, and reframes how supporters read the game.',
+    tags: ['Football', 'Vision', 'Language models'],
   },
   {
-    id: 2,
+    id: '002',
     name: 'Personal Agent',
-    tag: 'AI Assistant',
+    domain: 'Productivity · Systems',
+    year: '2026',
+    status: 'In development',
     description:
-      'An intelligent personal assistant powered by advanced AI, built to streamline daily workflows and support faster decision-making.',
-    accentColor: 'rgba(20, 184, 166, 0.5)',
-    glowColor: 'rgba(20, 184, 166, 0.06)',
+      'A quiet assistant that lives inside your workflow. Not a chat window — a set of hooks that capture intent, route context, and unblock decisions.',
+    tags: ['Agents', 'Workflow', 'Memory'],
   },
 ]
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
-  show: (i) => ({
+const fade = {
+  hidden: { opacity: 0, y: 24 },
+  show: (i = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { type: 'spring', stiffness: 220, damping: 22, delay: i * 0.1 },
+    transition: { duration: 0.8, delay: 0.1 + i * 0.08, ease: [0.16, 1, 0.3, 1] },
   }),
 }
 
@@ -38,127 +40,218 @@ export default function Home() {
       className="page home"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.3 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.4 }}
     >
-      <section className="hero">
-        <div className="hero-content">
-          <motion.p
-            className="section-label"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15, duration: 0.45 }}
+      {/* ─── Hero ─────────────────────────────────────── */}
+      <section className="hero shell">
+        <div className="hero-top">
+          <motion.span
+            className="eyebrow"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
           >
-            Introducing
-          </motion.p>
+            Volume I — 2026
+          </motion.span>
+          <motion.span
+            className="hero-coords"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.25, duration: 0.6 }}
+          >
+            40.4168° N  ·  3.7038° W
+          </motion.span>
+        </div>
 
+        <div className="hero-body">
           <motion.h1
-            className="hero-title"
-            initial={{ opacity: 0, y: 50 }}
+            className="display hero-title"
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, type: 'spring', stiffness: 150, damping: 18 }}
+            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
           >
-            Project
+            An atlas
             <br />
-            <span className="text-accent">Odyssey</span>
+            of <em>artificial</em>
+            <br />
+            <span className="accent">intelligence.</span>
           </motion.h1>
 
-          <motion.p
-            className="hero-subtitle"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.36, duration: 0.5 }}
+          <motion.aside
+            className="hero-side"
+            initial="hidden"
+            animate="show"
+            variants={fade}
+            custom={4}
           >
-            An AI-first parent company building the next generation of intelligent
-            products — starting with sport, expanding everywhere.
-          </motion.p>
-
-          <motion.div
-            className="hero-ctas"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, type: 'spring', stiffness: 240, damping: 20 }}
-          >
-            <Link to="/about" className="btn btn-primary">Our story →</Link>
-            <Link to="/contact" className="btn btn-ghost">Get in touch</Link>
-          </motion.div>
+            <p className="hero-side-label">On this volume</p>
+            <p className="hero-side-body">
+              Project Odyssey is an AI-first studio. We build intelligent
+              products where the gap between available data and human
+              understanding is largest. Sport is the first front; the approach
+              scales.
+            </p>
+            <div className="hero-side-ctas">
+              <Link to="/about" className="btn btn-primary">
+                Read the studio note <span className="btn-arrow">→</span>
+              </Link>
+              <Link to="/contact" className="btn btn-ghost">
+                Start a conversation
+              </Link>
+            </div>
+          </motion.aside>
         </div>
 
         <motion.div
-          className="hero-visual"
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.4, type: 'spring', stiffness: 120, damping: 20 }}
+          className="hero-horizon"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 1 }}
+          aria-hidden="true"
         >
-          <div className="hero-ring hero-ring-1" />
-          <div className="hero-ring hero-ring-2" />
-          <div className="hero-ring hero-ring-3" />
-          <div className="hero-ring-dot" />
-          <div className="hero-inner-text">
-            AI-first<br />frontier
+          <div className="horizon-labels">
+            <span>00</span>
+            <span>01</span>
+            <span>02</span>
+            <span>03</span>
+            <span>04</span>
+            <span>05</span>
+            <span>06</span>
+            <span>07</span>
+            <span>08</span>
+            <span>09</span>
+            <span>10</span>
+          </div>
+          <div className="horizon-line">
+            <span className="horizon-tick" style={{ left: '0%' }} />
+            <span className="horizon-tick" style={{ left: '10%' }} />
+            <span className="horizon-tick" style={{ left: '20%' }} />
+            <span className="horizon-tick" style={{ left: '30%' }} />
+            <span className="horizon-tick" style={{ left: '40%' }} />
+            <span className="horizon-tick" style={{ left: '50%' }} />
+            <span className="horizon-tick" style={{ left: '60%' }} />
+            <span className="horizon-tick" style={{ left: '70%' }} />
+            <span className="horizon-tick" style={{ left: '80%' }} />
+            <span className="horizon-tick" style={{ left: '90%' }} />
+            <span className="horizon-tick" style={{ left: '100%' }} />
+            <span className="horizon-cursor" />
+          </div>
+          <div className="horizon-readout">
+            <span>Active field</span>
+            <span className="horizon-dash">—</span>
+            <span className="horizon-value">Sport · AI · Product</span>
           </div>
         </motion.div>
       </section>
 
-      <section className="projects-section">
+      {/* ─── Manifesto pull-quote ────────────────────── */}
+      <section className="shell manifesto-wrap">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          className="manifesto"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: '-80px' }}
-          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="section-label">Current Work</p>
-          <h2 className="section-heading">Active Projects</h2>
+          <span className="manifesto-mark" aria-hidden="true">§</span>
+          <blockquote className="manifesto-quote">
+            AI is not a <em>feature</em>. It is the <em>foundation</em> —
+            and we build on it deliberately, without compromise.
+          </blockquote>
+          <span className="manifesto-byline">
+            Editorial — Ivan Tugolukov, Founder
+          </span>
         </motion.div>
-
-        <div className="projects-grid">
-          {projects.map((project, i) => (
-            <motion.div
-              key={project.id}
-              className="project-card glass"
-              style={{ '--card-accent': project.accentColor }}
-              custom={i}
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: false, margin: '-60px' }}
-              whileHover={{ scale: 1.02, y: -6 }}
-              transition={{ type: 'spring', stiffness: 360, damping: 20 }}
-            >
-              <div
-                className="project-card-glow"
-                style={{
-                  background: `radial-gradient(ellipse at top left, ${project.glowColor}, transparent 60%)`,
-                }}
-              />
-              <div className="project-card-inner">
-                <div className="project-tag-row">
-                  <span className="project-tag">{project.tag}</span>
-                </div>
-                <h3 className="project-name">{project.name}</h3>
-                <p className="project-desc">{project.description}</p>
-                <div className="project-footer">
-                  <span className="wip-badge">In Progress</span>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
       </section>
 
-      <motion.section
-        className="manifesto glass"
-        initial={{ opacity: 0, y: 36 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, margin: '-60px' }}
-        whileHover={{ scale: 1.012, y: -4 }}
-        transition={{ type: 'spring', stiffness: 280, damping: 20 }}
-      >
-        <p className="manifesto-quote">
-          AI is not a feature — it's the foundation. We build on that
-          foundation, deliberately and without compromise.
-        </p>
-      </motion.section>
+      {/* ─── Projects catalog ─────────────────────────── */}
+      <section className="shell catalog-wrap">
+        <motion.header
+          className="section-head"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <h2 className="section-head-title">
+            Field <em>work</em>, <br />currently in motion.
+          </h2>
+          <div className="section-head-meta">
+            <span>§ 02 — The catalog</span>
+            <span>Two projects, both active</span>
+          </div>
+        </motion.header>
+
+        <ul className="catalog">
+          {projects.map((p, i) => (
+            <motion.li
+              key={p.id}
+              className="catalog-entry"
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div className="catalog-index">
+                <span className="catalog-id">{p.id}</span>
+                <span className="catalog-year">{p.year}</span>
+              </div>
+              <div className="catalog-body">
+                <p className="catalog-domain">{p.domain}</p>
+                <h3 className="catalog-name">{p.name}</h3>
+                <p className="catalog-desc">{p.description}</p>
+                <div className="catalog-tags">
+                  {p.tags.map((t) => (
+                    <span key={t} className="catalog-tag">{t}</span>
+                  ))}
+                </div>
+              </div>
+              <div className="catalog-status">
+                <span className="dot dot-signal" aria-hidden="true" />
+                <span className="catalog-status-label">{p.status}</span>
+              </div>
+            </motion.li>
+          ))}
+        </ul>
+      </section>
+
+      {/* ─── Closing editorial note ─────────────────── */}
+      <section className="shell closing-wrap">
+        <motion.div
+          className="closing"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <div className="closing-left">
+            <span className="index-mark">§ 03 — Next</span>
+          </div>
+          <div className="closing-center">
+            <p className="prose-lg">
+              If you're building in sport, systems, or AI, and the work
+              feels aligned — we'd rather talk than describe.
+            </p>
+          </div>
+          <div className="closing-right">
+            <Link to="/contact" className="btn btn-primary">
+              Open a line <span className="btn-arrow">→</span>
+            </Link>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Colophon strip */}
+      <footer className="shell colophon">
+        <span>Project Odyssey</span>
+        <span className="colophon-dot">·</span>
+        <span>Madrid / Singapore</span>
+        <span className="colophon-dot">·</span>
+        <span>Volume I — 2026</span>
+        <span className="colophon-spacer" />
+        <span>MMXXVI</span>
+      </footer>
     </motion.div>
   )
 }
