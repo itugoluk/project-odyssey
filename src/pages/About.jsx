@@ -1,50 +1,104 @@
-import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import './About.css'
 
-function StudioClock() {
-  const [now, setNow] = useState(new Date())
+// Geometric emergence: dot → triangle → hexagon → spokes → dissolve
+// Cycle: 10s. Directly illustrates "building what doesn't exist yet."
+const D = 10 // total duration
 
-  useEffect(() => {
-    const id = setInterval(() => setNow(new Date()), 1000)
-    return () => clearInterval(id)
-  }, [])
+const TRI_PTS  = [[190, 82], [231.6, 154], [148.4, 154]]
+const HEX_PTS  = [[190, 35], [272.3, 82.5], [272.3, 177.5], [190, 225], [107.7, 177.5], [107.7, 82.5]]
+const SPOKES   = ['M 190 82 L 190 35', 'M 231.6 154 L 272.3 177.5', 'M 148.4 154 L 107.7 177.5']
 
-  const fmtTime = (tz) =>
-    now.toLocaleTimeString('en-GB', {
-      timeZone: tz,
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: false,
-    })
-
-  const fmtDate = (tz) =>
-    now.toLocaleDateString('en-GB', {
-      timeZone: tz,
-      weekday: 'short',
-      day: '2-digit',
-      month: 'short',
-      year: 'numeric',
-    })
-
+function HeroAnimation() {
   return (
-    <div className="studio-clock-panel">
-      <div className="studio-clock-entry">
-        <span className="clock-tag">ST · 01</span>
-        <span className="clock-city">Madrid</span>
-        <span className="clock-time">{fmtTime('Europe/Madrid')}</span>
-        <span className="clock-meta">{fmtDate('Europe/Madrid')}</span>
-        <span className="clock-tz">CET · UTC+1 · Founding studio</span>
+    <div className="hero-anim-panel">
+      <div className="hero-anim-head">
+        <span className="hero-anim-tag">§ — Form</span>
+        <motion.span
+          className="hero-anim-pulse"
+          animate={{ opacity: [1, 0.25, 1] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+        >◦</motion.span>
       </div>
-      <div className="clock-rule" />
-      <div className="studio-clock-entry">
-        <span className="clock-tag">ST · 02</span>
-        <span className="clock-city">Singapore</span>
-        <span className="clock-time">{fmtTime('Asia/Singapore')}</span>
-        <span className="clock-meta">{fmtDate('Asia/Singapore')}</span>
-        <span className="clock-tz">SGT · UTC+8 · Studio</span>
+
+      <svg viewBox="0 0 380 260" className="hero-anim-svg" aria-hidden="true">
+        <defs>
+          <pattern id="form-grid" width="19" height="19" patternUnits="userSpaceOnUse">
+            <circle cx="0.8" cy="0.8" r="0.8" fill="var(--ink)" opacity="0.1" />
+          </pattern>
+        </defs>
+        <rect width="380" height="260" fill="url(#form-grid)" />
+
+        {/* Hexagon — draws second */}
+        <motion.path
+          d="M 190 35 L 272.3 82.5 L 272.3 177.5 L 190 225 L 107.7 177.5 L 107.7 82.5 Z"
+          fill="none" stroke="var(--ink)" strokeWidth="0.75" strokeLinejoin="round"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: [0, 0, 1, 1, 0, 0] }}
+          transition={{ duration: D, times: [0, 0.18, 0.42, 0.60, 0.78, 1], repeat: Infinity, ease: 'easeInOut' }}
+        />
+
+        {/* Triangle — draws first */}
+        <motion.path
+          d="M 190 82 L 231.6 154 L 148.4 154 Z"
+          fill="none" stroke="var(--ink)" strokeWidth="0.75" strokeLinejoin="round"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: [0, 0, 1, 1, 0, 0] }}
+          transition={{ duration: D, times: [0, 0.03, 0.18, 0.68, 0.82, 1], repeat: Infinity, ease: 'easeInOut' }}
+        />
+
+        {/* Ember spokes — appear last, connecting inner to outer */}
+        {SPOKES.map((d, i) => (
+          <motion.path
+            key={i} d={d}
+            fill="none" stroke="var(--ember)" strokeWidth="0.6"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: [0, 0, 1, 1, 0, 0] }}
+            transition={{
+              duration: D,
+              times: [0, 0.40 + i * 0.022, 0.53 + i * 0.01, 0.60, 0.70, 1],
+              repeat: Infinity, ease: 'easeInOut',
+            }}
+          />
+        ))}
+
+        {/* Triangle vertex dots */}
+        {TRI_PTS.map(([cx, cy], i) => (
+          <motion.circle
+            key={i} cx={cx} cy={cy} r={2.5} fill="var(--ink)"
+            animate={{ opacity: [0, 0, 0.75, 0.75, 0, 0] }}
+            transition={{
+              duration: D,
+              times: [0, 0.16 + i * 0.015, 0.20, 0.68, 0.80, 1],
+              repeat: Infinity, ease: 'easeInOut',
+            }}
+          />
+        ))}
+
+        {/* Hexagon vertex dots */}
+        {HEX_PTS.map(([cx, cy], i) => (
+          <motion.circle
+            key={i} cx={cx} cy={cy} r={1.75} fill="var(--ink)"
+            animate={{ opacity: [0, 0, 0.5, 0.5, 0, 0] }}
+            transition={{
+              duration: D,
+              times: [0, 0.38 + i * 0.008, 0.44, 0.60, 0.74, 1],
+              repeat: Infinity, ease: 'easeInOut',
+            }}
+          />
+        ))}
+
+        {/* Center ember dot — seed point */}
+        <motion.circle
+          cx={190} cy={130} r={3.5} fill="var(--ember)"
+          animate={{ opacity: [0, 0, 1, 1, 0, 0] }}
+          transition={{ duration: D, times: [0, 0.02, 0.05, 0.80, 0.86, 1], repeat: Infinity, ease: 'easeInOut' }}
+        />
+      </svg>
+
+      <div className="hero-anim-foot">
+        <span className="hero-anim-meta">Assembling — Vol. I</span>
       </div>
     </div>
   )
@@ -135,7 +189,7 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
           >
-            <StudioClock />
+            <HeroAnimation />
           </motion.div>
         </div>
 
