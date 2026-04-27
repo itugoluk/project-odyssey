@@ -7,7 +7,9 @@
 /* ── Hero ───────────────────────────────────────── */
 .about-hero {
   padding-top: 0.75rem;
-  padding-bottom: 2rem;
+  /* padding-bottom matches the flex `gap` so the auto margins on the grid
+     produce equal visible space above and below it. */
+  padding-bottom: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -81,14 +83,17 @@
   display: block;
 }
 
-/* ── Hero grid (anchored to bottom of hero so buffer sits above it) */
+/* ── Hero grid (centred in the lower portion of the hero) */
 .about-hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
   gap: 3rem;
-  padding-top: 1.5rem;
-  align-items: center;
+  padding-top: 0;
+  align-items: start;
+  /* Auto on both sides splits remaining vertical space equally,
+     making top gap (title → lede) ≈ bottom gap (lede → viewport bottom). */
   margin-top: auto;
+  margin-bottom: auto;
 }
 
 @media (max-width: 900px) {
