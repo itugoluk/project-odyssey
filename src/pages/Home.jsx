@@ -54,14 +54,25 @@ export default function Home() {
           >
             Volume I — 2026
           </motion.span>
-          <motion.span
-            className="hero-coords"
+          <motion.div
+            className="hero-stations"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.25, duration: 0.6 }}
+            aria-label="Studio stations"
           >
-            40.4168° N  ·  3.7038° W
-          </motion.span>
+            <span className="hero-station">
+              <span className="hero-station-tag">ST · 01</span>
+              <span className="hero-station-name">Madrid</span>
+              <span className="hero-station-coord">40.4168° N · 3.7038° W</span>
+            </span>
+            <span className="hero-station-sep" aria-hidden="true" />
+            <span className="hero-station">
+              <span className="hero-station-tag">ST · 02</span>
+              <span className="hero-station-name">Singapore</span>
+              <span className="hero-station-coord">1.3521° N · 103.8198° E</span>
+            </span>
+          </motion.div>
         </div>
 
         <div className="hero-body">

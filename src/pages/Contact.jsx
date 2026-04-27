@@ -41,7 +41,7 @@ export default function Contact() {
       <section className="shell contact-hero">
         <div className="contact-hero-top">
           <span className="eyebrow">§ 02 — Open line</span>
-          <span className="contact-hero-date">CET — Madrid</span>
+          <span className="contact-hero-date">Madrid · Singapore</span>
         </div>
 
         <motion.h1
@@ -235,17 +235,28 @@ export default function Contact() {
           </div>
 
           <div className="contact-card">
-            <span className="index-mark">§ 02.03 — Logistics</span>
+            <span className="index-mark">§ 02.03 — Stations</span>
+            <h3 className="contact-card-title">Where we are</h3>
+            <ul className="contact-stations">
+              <li>
+                <span className="contact-station-tag">ST · 01</span>
+                <span className="contact-station-name">Madrid, Spain</span>
+                <span className="contact-station-meta">40.4168° N · 3.7038° W</span>
+                <span className="contact-station-meta">CET (UTC+1) · Primary studio</span>
+              </li>
+              <li>
+                <span className="contact-station-tag">ST · 02</span>
+                <span className="contact-station-name">Singapore</span>
+                <span className="contact-station-meta">1.3521° N · 103.8198° E</span>
+                <span className="contact-station-meta">SGT (UTC+8) · Asia outpost</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="contact-card">
+            <span className="index-mark">§ 02.04 — Logistics</span>
             <h3 className="contact-card-title">Working details</h3>
             <dl className="contact-details">
-              <div>
-                <dt>Based</dt>
-                <dd>Madrid, Spain · Singapore roots</dd>
-              </div>
-              <div>
-                <dt>Time zone</dt>
-                <dd>CET (UTC+1)</dd>
-              </div>
               <div>
                 <dt>Response</dt>
                 <dd>Within 24 hours</dd>
@@ -253,6 +264,10 @@ export default function Contact() {
               <div>
                 <dt>Focus</dt>
                 <dd>Sport-tech · AI · Product</dd>
+              </div>
+              <div>
+                <dt>Languages</dt>
+                <dd>English · Spanish · Russian</dd>
               </div>
             </dl>
           </div>

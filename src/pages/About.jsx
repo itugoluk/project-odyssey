@@ -32,8 +32,25 @@ const principles = [
 const facts = [
   { label: 'Founded', value: '2026', sub: 'Volume I' },
   { label: 'Projects', value: '02', sub: 'Active now' },
-  { label: 'Studio', value: 'Madrid', sub: 'Remote-first' },
+  { label: 'Stations', value: '02', sub: 'Madrid · Singapore' },
   { label: 'Posture', value: 'AI-first', sub: 'Since day one' },
+]
+
+const stations = [
+  {
+    tag: 'ST · 01',
+    name: 'Madrid',
+    role: 'Primary studio',
+    coord: '40.4168° N · 3.7038° W',
+    tz: 'CET (UTC+1)',
+  },
+  {
+    tag: 'ST · 02',
+    name: 'Singapore',
+    role: 'Asia outpost',
+    coord: '1.3521° N · 103.8198° E',
+    tz: 'SGT (UTC+8)',
+  },
 ]
 
 export default function About() {
@@ -204,6 +221,52 @@ export default function About() {
         </ol>
       </section>
 
+      {/* ── Stations ───────────────────────────────── */}
+      <section className="shell stations-wrap">
+        <motion.header
+          className="section-head"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <h2 className="section-head-title">
+            Two <em>stations</em>, <br />one studio.
+          </h2>
+          <div className="section-head-meta">
+            <span>§ 04 — Where we work</span>
+            <span>Madrid is the studio. Singapore is the second port — roots that still tug.</span>
+          </div>
+        </motion.header>
+
+        <ul className="stations">
+          {stations.map((s, i) => (
+            <motion.li
+              key={s.tag}
+              className="station"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <span className="station-tag">{s.tag}</span>
+              <h3 className="station-name">{s.name}</h3>
+              <p className="station-role">{s.role}</p>
+              <dl className="station-meta">
+                <div>
+                  <dt>Coordinates</dt>
+                  <dd>{s.coord}</dd>
+                </div>
+                <div>
+                  <dt>Time zone</dt>
+                  <dd>{s.tz}</dd>
+                </div>
+              </dl>
+            </motion.li>
+          ))}
+        </ul>
+      </section>
+
       {/* ── CTA / close ───────────────────────────── */}
       <section className="shell about-close">
         <motion.div
@@ -214,7 +277,7 @@ export default function About() {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
           <div>
-            <span className="index-mark">§ 04 — Invitation</span>
+            <span className="index-mark">§ 05 — Invitation</span>
             <p className="prose-lg about-close-lede">
               If any of this resonates — the posture, the projects, or
               the refusal to dilute the idea — we'd like to hear from you.

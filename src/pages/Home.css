@@ -29,6 +29,67 @@
   text-transform: uppercase;
 }
 
+/* Two-station readout (Madrid / Singapore) */
+.hero-stations {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.hero-station {
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+  align-items: baseline;
+  gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.hero-station-tag {
+  color: var(--ember);
+  font-weight: 500;
+}
+
+.hero-station-name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.95rem;
+  text-transform: none;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  font-variation-settings: 'opsz' 24, 'SOFT' 100, 'WONK' 1;
+}
+
+.hero-station-coord {
+  color: var(--ink-faint);
+}
+
+.hero-station-sep {
+  display: inline-block;
+  width: 1px;
+  height: 18px;
+  background: var(--hairline);
+}
+
+@media (max-width: 760px) {
+  .hero-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .hero-stations {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .hero-station-sep {
+    display: none;
+  }
+}
+
 .hero-body {
   display: grid;
   grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
