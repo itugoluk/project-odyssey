@@ -1,6 +1,54 @@
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import './About.css'
+
+function StudioClock() {
+  const [now, setNow] = useState(new Date())
+
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 1000)
+    return () => clearInterval(id)
+  }, [])
+
+  const fmtTime = (tz) =>
+    now.toLocaleTimeString('en-GB', {
+      timeZone: tz,
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false,
+    })
+
+  const fmtDate = (tz) =>
+    now.toLocaleDateString('en-GB', {
+      timeZone: tz,
+      weekday: 'short',
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric',
+    })
+
+  return (
+    <div className="studio-clock-panel">
+      <div className="studio-clock-entry">
+        <span className="clock-tag">ST · 01</span>
+        <span className="clock-city">Madrid</span>
+        <span className="clock-time">{fmtTime('Europe/Madrid')}</span>
+        <span className="clock-meta">{fmtDate('Europe/Madrid')}</span>
+        <span className="clock-tz">CET · UTC+1 · Founding studio</span>
+      </div>
+      <div className="clock-rule" />
+      <div className="studio-clock-entry">
+        <span className="clock-tag">ST · 02</span>
+        <span className="clock-city">Singapore</span>
+        <span className="clock-time">{fmtTime('Asia/Singapore')}</span>
+        <span className="clock-meta">{fmtDate('Asia/Singapore')}</span>
+        <span className="clock-tz">SGT · UTC+8 · Studio</span>
+      </div>
+    </div>
+  )
+}
 
 const principles = [
   {
@@ -69,25 +117,35 @@ export default function About() {
           <span className="about-hero-date">MMXXIV / Vol. I</span>
         </div>
 
-        <motion.h1
-          className="display about-title"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-        >
-          We build what
-          <br />
-          <em>doesn't</em> exist
-          <br />
-          <span className="accent">yet.</span>
-        </motion.h1>
+        <div className="about-hero-main">
+          <motion.h1
+            className="display about-title"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+          >
+            We build what
+            <br />
+            <em>doesn't</em> exist <span className="accent">yet.</span>
+          </motion.h1>
+
+          <motion.div
+            className="about-clock-wrap"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+          >
+            <StudioClock />
+          </motion.div>
+        </div>
 
         <div className="about-hero-grid">
           <motion.div
             className="about-lede"
             initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             <p className="prose-lg">
               Project Odyssey is an AI-first studio. We build intelligent
@@ -106,8 +164,9 @@ export default function About() {
           <motion.aside
             className="about-facts"
             initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.45, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             {facts.map((f) => (
               <div key={f.label} className="about-fact">

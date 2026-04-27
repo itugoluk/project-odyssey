@@ -9,14 +9,14 @@
   padding-top: 0.75rem;
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
 .about-hero-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
   border-bottom: 1px solid var(--hairline);
 }
 
@@ -28,9 +28,26 @@
   text-transform: uppercase;
 }
 
+/* Two-column: title left, clock right */
+.about-hero-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 3rem;
+  align-items: center;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--hairline);
+}
+
+@media (max-width: 960px) {
+  .about-hero-main {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
 .about-title {
-  font-size: clamp(3rem, 10vw, 8.5rem);
-  line-height: 0.92;
+  font-size: clamp(2.5rem, 6.5vw, 6.5rem);
+  line-height: 0.93;
   letter-spacing: -0.035em;
   font-variation-settings: 'opsz' 144, 'SOFT' 40;
 }
@@ -47,12 +64,99 @@
   font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
 }
 
+/* ── Studio clock panel ─────────────────────────── */
+.about-clock-wrap {
+  display: flex;
+  align-items: stretch;
+}
+
+.studio-clock-panel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid var(--hairline);
+  background: var(--paper-raised);
+  position: relative;
+  overflow: hidden;
+}
+
+.studio-clock-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--ember) 0%, transparent 100%);
+}
+
+.studio-clock-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1.5rem 1.75rem;
+  flex: 1;
+}
+
+.clock-rule {
+  height: 1px;
+  background: var(--hairline);
+  margin: 0 1.75rem;
+}
+
+.clock-tag {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ember);
+  font-weight: 500;
+}
+
+.clock-city {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  font-variation-settings: 'opsz' 48, 'SOFT' 100, 'WONK' 1;
+  line-height: 1;
+  margin-top: 0.1rem;
+}
+
+.clock-time {
+  font-family: var(--font-mono);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1;
+  margin-top: 0.5rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.clock-meta {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+}
+
+.clock-tz {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+}
+
+/* ── Hero grid (below fold) ─────────────────────── */
 .about-hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
   gap: 4rem;
   padding-top: 2.5rem;
-  border-top: 1px solid var(--hairline);
   align-items: start;
 }
 
