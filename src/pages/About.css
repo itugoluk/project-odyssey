@@ -6,7 +6,7 @@
 
 /* ── Hero ───────────────────────────────────────── */
 .about-hero {
-  padding-top: 2rem;
+  padding-top: 0.75rem;
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
