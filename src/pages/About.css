@@ -89,7 +89,8 @@
   grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
   gap: 3rem;
   padding-top: 0;
-  align-items: start;
+  /* Vertically centre lede and facts against each other so their midlines align. */
+  align-items: center;
   /* Auto on both sides splits remaining vertical space equally,
      making top gap (title → lede) ≈ bottom gap (lede → viewport bottom). */
   margin-top: auto;
