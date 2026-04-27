@@ -30,9 +30,9 @@ const principles = [
 ]
 
 const facts = [
-  { label: 'Founded', value: '2026', sub: 'Volume I' },
+  { label: 'Founded', value: '2024', sub: '31 . 07' },
   { label: 'Projects', value: '02', sub: 'Active now' },
-  { label: 'Stations', value: '02', sub: 'Madrid · Singapore' },
+  { label: 'Studios', value: '02', sub: 'Madrid · Singapore' },
   { label: 'Posture', value: 'AI-first', sub: 'Since day one' },
 ]
 
@@ -40,14 +40,14 @@ const stations = [
   {
     tag: 'ST · 01',
     name: 'Madrid',
-    role: 'Primary studio',
+    role: 'Founding studio',
     coord: '40.4168° N · 3.7038° W',
     tz: 'CET (UTC+1)',
   },
   {
     tag: 'ST · 02',
     name: 'Singapore',
-    role: 'Asia outpost',
+    role: 'Studio',
     coord: '1.3521° N · 103.8198° E',
     tz: 'SGT (UTC+8)',
   },
@@ -66,7 +66,7 @@ export default function About() {
       <section className="shell about-hero">
         <div className="about-hero-top">
           <span className="eyebrow">§ 01 — Studio note</span>
-          <span className="about-hero-date">MMXXVI / Vol. I</span>
+          <span className="about-hero-date">MMXXIV / Vol. I</span>
         </div>
 
         <motion.h1
@@ -231,11 +231,11 @@ export default function About() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <h2 className="section-head-title">
-            Two <em>stations</em>, <br />one studio.
+            Two <em>studios</em>, <br />one practice.
           </h2>
           <div className="section-head-meta">
             <span>§ 04 — Where we work</span>
-            <span>Madrid is the studio. Singapore is the second port — roots that still tug.</span>
+            <span>Madrid is where Project Odyssey was founded. Singapore is its equal — same posture, opposite hemisphere.</span>
           </div>
         </motion.header>
 
@@ -294,7 +294,7 @@ export default function About() {
         <span className="colophon-dot">·</span>
         <span>Studio note — Vol. I</span>
         <span className="colophon-spacer" />
-        <span>MMXXVI</span>
+        <span>Est. MMXXIV</span>
       </footer>
     </motion.div>
   )

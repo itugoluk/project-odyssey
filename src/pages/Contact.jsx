@@ -3,9 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import './Contact.css'
 
 const channels = [
-  { label: 'Email', value: 'hello@projectodyssey.ai', href: 'mailto:hello@projectodyssey.ai' },
-  { label: 'GitHub', value: '@ivantu', href: 'https://github.com' },
-  { label: 'LinkedIn', value: 'Ivan Tugolukov', href: 'https://linkedin.com' },
+  { label: 'General', value: 'hello@projectodyssey.ai', href: 'mailto:hello@projectodyssey.ai' },
+  { label: 'Press', value: 'press@projectodyssey.ai', href: 'mailto:press@projectodyssey.ai' },
+  { label: 'Briefs', value: 'briefs@projectodyssey.ai', href: 'mailto:briefs@projectodyssey.ai' },
 ]
 
 const openTo = [
@@ -242,13 +242,13 @@ export default function Contact() {
                 <span className="contact-station-tag">ST · 01</span>
                 <span className="contact-station-name">Madrid, Spain</span>
                 <span className="contact-station-meta">40.4168° N · 3.7038° W</span>
-                <span className="contact-station-meta">CET (UTC+1) · Primary studio</span>
+                <span className="contact-station-meta">CET (UTC+1) · Founding studio</span>
               </li>
               <li>
                 <span className="contact-station-tag">ST · 02</span>
                 <span className="contact-station-name">Singapore</span>
                 <span className="contact-station-meta">1.3521° N · 103.8198° E</span>
-                <span className="contact-station-meta">SGT (UTC+8) · Asia outpost</span>
+                <span className="contact-station-meta">SGT (UTC+8) · Studio</span>
               </li>
             </ul>
           </div>
@@ -267,7 +267,7 @@ export default function Contact() {
               </div>
               <div>
                 <dt>Languages</dt>
-                <dd>English · Spanish · Russian</dd>
+                <dd>English · Spanish</dd>
               </div>
             </dl>
           </div>
@@ -279,7 +279,7 @@ export default function Contact() {
         <span className="colophon-dot">·</span>
         <span>Open line — Vol. I</span>
         <span className="colophon-spacer" />
-        <span>MMXXVI</span>
+        <span>Est. MMXXIV</span>
       </footer>
     </motion.div>
   )

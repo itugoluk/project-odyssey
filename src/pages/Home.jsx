@@ -7,7 +7,7 @@ const projects = [
     id: '001',
     name: 'Spurs Tracker',
     domain: 'Sport · Football Analytics',
-    year: '2026',
+    year: '2024',
     status: 'In development',
     description:
       'AI-powered performance tracking for Tottenham Hotspur. Surfaces tactical patterns, automates match analysis, and reframes how supporters read the game.',
@@ -17,7 +17,7 @@ const projects = [
     id: '002',
     name: 'Personal Agent',
     domain: 'Productivity · Systems',
-    year: '2026',
+    year: '2024',
     status: 'In development',
     description:
       'A quiet assistant that lives inside your workflow. Not a chat window — a set of hooks that capture intent, route context, and unblock decisions.',
@@ -52,7 +52,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            Volume I — 2026
+            Vol. I — Est. 31.07.2024
           </motion.span>
           <motion.div
             className="hero-stations"
@@ -171,7 +171,7 @@ export default function Home() {
             and we build on it deliberately, without compromise.
           </blockquote>
           <span className="manifesto-byline">
-            Editorial — Ivan Tugolukov, Founder
+            Editorial — Studio note, Vol. I
           </span>
         </motion.div>
       </section>
@@ -257,11 +257,11 @@ export default function Home() {
       <footer className="shell colophon">
         <span>Project Odyssey</span>
         <span className="colophon-dot">·</span>
-        <span>Madrid / Singapore</span>
+        <span>Madrid · Singapore</span>
         <span className="colophon-dot">·</span>
-        <span>Volume I — 2026</span>
+        <span>Vol. I — Est. 31.07.2024</span>
         <span className="colophon-spacer" />
-        <span>MMXXVI</span>
+        <span>MMXXIV</span>
       </footer>
     </motion.div>
   )
