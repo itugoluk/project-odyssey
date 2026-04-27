@@ -1,7 +1,7 @@
 .about {
   display: flex;
   flex-direction: column;
-  gap: 6.5rem;
+  gap: 3rem;
 }
 
 /* ── Hero ───────────────────────────────────────── */
@@ -32,12 +32,13 @@
   text-transform: uppercase;
 }
 
-/* Two-column: title left, animation right */
+/* Two-column: title left, animation right.
+   Animation drives row height; title is vertically centred against it. */
 .about-hero-main {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   gap: 3rem;
-  align-items: start;
+  align-items: center;
 }
 
 @media (max-width: 960px) {
@@ -66,7 +67,7 @@
   font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
 }
 
-/* ── Animation column (borderless, scales to fit title height) */
+/* ── Animation column (borderless, natural size) */
 .about-anim-col {
   display: flex;
   align-items: center;
@@ -77,18 +78,17 @@
 .about-anim-svg {
   width: 100%;
   height: auto;
-  /* Scales (not clips) to roughly match title height. */
-  max-height: clamp(160px, 13vw, 220px);
   display: block;
 }
 
-/* ── Hero grid (below fold) ─────────────────────── */
+/* ── Hero grid (anchored to bottom of hero so buffer sits above it) */
 .about-hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
   gap: 4rem;
   padding-top: 2.5rem;
   align-items: start;
+  margin-top: auto;
 }
 
 @media (max-width: 900px) {
