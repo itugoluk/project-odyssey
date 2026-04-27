@@ -81,7 +81,7 @@ export default function Contact() {
           onSubmit={handleSubmit}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <header className="contact-form-head">
@@ -215,7 +215,7 @@ export default function Contact() {
           className="contact-aside"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
         >
           <div className="contact-card">
